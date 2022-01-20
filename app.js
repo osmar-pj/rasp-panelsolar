@@ -27,5 +27,5 @@ let datas = {
 setInterval( async () => {
     const data = await master.readHoldingRegisters(1, 15200, 25)
     datas.detector_rasp.values = data
-    client.publish('peru/arequipa/hunter/palomino_florez', JSON.stringify(datas))
+    client.publish(process.env.TOPIC_PS, JSON.stringify(datas))
 }, 2000)
